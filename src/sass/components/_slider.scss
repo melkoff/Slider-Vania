@@ -1,20 +1,60 @@
-.slider-container-review {
-   width: 50%;
-   margin: 0 auto;
-   height: 100vh;
+.fusion-builder-row-2 {
+   padding: 0px !important;
+}
+.slider-container-top {
+   width: 100%;
+   height: 250px;
+   position: relative;
+   margin: 0px 0px 180px 0px;
+}
+
+.slider-wrapper-top {
    position: relative;
 }
 
-.slider-wrapper-review {
-   position: relative;
-}
-
-.slider-review {
+.slider-slide-top {
+   width: 80%;
+   text-decoration: none;
    position: absolute;
    top: 0;
-   left: 0;
-   opacity: 0;
+   left: 50%;
+   transform: translate(-50%, 0%);
    transition: opacity 0.5s ease-in-out;
+}
+
+.slider-slide-top img {
+   width: 100%;
+   height: 250px;
+}
+
+.slider-top-text {
+   text-align: center;
+}
+
+.slider-title {
+   margin: 20px 0;
+   font-family: "Roboto Slab";
+   font-weight: 400;
+   font-size: 30px;
+   line-height: 1.25;
+   color: #7f0000;
+}
+
+.slider-describe {
+   color: #5b5b5b;
+}
+
+.slider-top-link {
+   border-color: #7f0000;
+   background: #7f0000;
+   padding: 10px 20px;
+   margin: 20px auto;
+   text-align: center;
+   width: 180px;
+}
+
+.slider-top-link span {
+   color: #fff;
 }
 
 .slider-pagination {
@@ -30,14 +70,16 @@
    top: 50%;
    transform: translateY(-50%);
    padding: 10px;
-   background-color: #ccc;
+   background-color: #7f0000;
    cursor: pointer;
 }
 
 .slider-prev {
    left: 10px;
+   color: #fff;
 }
 
 .slider-next {
    right: 10px;
+   color: #fff;
 }

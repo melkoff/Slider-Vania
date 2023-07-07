@@ -1,5 +1,6 @@
+
 var slideIndex = 0;
-var slides = document.getElementsByClassName("slider-wrapper-review")[0].children;
+var slides = document.getElementsByClassName("slider-wrapper-top")[0].children;
 var totalSlides = slides.length;
 
 function showSlide(n) {
@@ -27,17 +28,17 @@ function rotateSlides() {
   changeSlide(1);
 }
 
-// Запуск автоматичного переходу між слайдами
-var interval = setInterval(rotateSlides, 3000);
+// Auto Slider
+var interval = setInterval(rotateSlides, 5000);
 
-// Зупинка автоматичного переходу при наведенні курсора на слайдер
-document.getElementsByClassName("slider-container-review")[0].addEventListener("mouseenter", function () {
+// Stop auto slide when hover
+document.getElementsByClassName("slider-container-top")[0].addEventListener("mouseenter", function () {
   clearInterval(interval);
 });
 
-// Поновлення автоматичного переходу після зняття курсора зі слайдера
-document.getElementsByClassName("slider-container-review")[0].addEventListener("mouseleave", function () {
-  interval = setInterval(rotateSlides, 3000);
+// Start auto slide when out hover
+document.getElementsByClassName("slider-container-top")[0].addEventListener("mouseleave", function () {
+  interval = setInterval(rotateSlides, 5000);
 });
 
 showSlide(slideIndex);
