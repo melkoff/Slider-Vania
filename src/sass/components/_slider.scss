@@ -2,8 +2,10 @@
    padding: 0px !important;
 }
 .slider-container-top {
-   width: 100%;
+   width: 40%;
    height: 250px;
+   left: 50%;
+   transform: translate(-50%, 0);
    position: relative;
    margin: 0px 0px 180px 0px;
 }
