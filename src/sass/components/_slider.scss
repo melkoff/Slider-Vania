@@ -58,7 +58,7 @@
    border-radius: 16px;
    margin: 0 auto;
    overflow: hidden;
-   position: relative; /* Додайте це для коректного позиціювання дочірніх елементів */
+   position: relative;
 }
 
 .line {
@@ -66,7 +66,7 @@
    display: block;
    height: 100%;
    transition: width 0.5s ease;
-   position: absolute; /* Додайте це для коректного позиціювання відносно батьківського контейнера */
+   position: absolute;
 }
 
 .line-green {
