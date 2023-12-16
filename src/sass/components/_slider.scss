@@ -48,3 +48,39 @@
 .slider-next {
    right: 10px;
 }
+
+// style for percent line
+
+.percent-line {
+   width: 80%;
+   height: 15px;
+   border: 2px solid #000;
+   border-radius: 16px;
+   margin: 0 auto;
+}
+
+.line-green,
+.line-yellow,
+.line-red {
+   border-radius: 16px;
+   display: none;
+   height: 100%;
+}
+
+.line-green {
+   display: none;
+   width: 33%;
+   background-color: green;
+}
+
+.line-yellow {
+   display: none;
+   width: 66%;
+   background-color: yellow;
+}
+
+.line-red {
+   display: none;
+   width: 100%;
+   background-color: red;
+}

@@ -23,3 +23,16 @@ document.getElementsByClassName("slider-next")[0].addEventListener("click", func
 });
 
 showSlide(slideIndex);
+
+
+// line percent //
+
+function showLine(color) {
+  // hide all lines afret click choose line
+  document.getElementById("green").style.display = "none";
+  document.getElementById("yellow").style.display = "none";
+  document.getElementById("red").style.display = "none";
+
+  // show our line
+  document.getElementById(color).style.display = "block";
+}
