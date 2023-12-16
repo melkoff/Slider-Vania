@@ -57,30 +57,70 @@
    border: 2px solid #000;
    border-radius: 16px;
    margin: 0 auto;
+   overflow: hidden;
+   position: relative; /* Додайте це для коректного позиціювання дочірніх елементів */
 }
 
-.line-green,
-.line-yellow,
-.line-red {
+.line {
    border-radius: 16px;
-   display: none;
+   display: block;
    height: 100%;
+   transition: width 0.5s ease;
+   position: absolute; /* Додайте це для коректного позиціювання відносно батьківського контейнера */
 }
 
 .line-green {
-   display: none;
-   width: 33%;
    background-color: green;
 }
 
 .line-yellow {
-   display: none;
-   width: 66%;
    background-color: yellow;
 }
 
 .line-red {
-   display: none;
-   width: 100%;
    background-color: red;
+}
+
+.my-btns {
+   width: 80%;
+   height: auto;
+   margin: 20px auto;
+   display: flex;
+   justify-content: space-evenly;
+}
+
+.btn-green,
+.btn-yellow,
+.btn-red {
+   border: 1px solid #000;
+   border-radius: 20px;
+   padding: 10px 30px;
+   color: #fff;
+}
+
+.btn-green {
+   background-color: green;
+}
+
+.btn-green:hover {
+   transition: 0.3s;
+   background-color: rgb(86, 255, 39);
+}
+
+.btn-yellow {
+   background-color: yellow;
+}
+
+.btn-yellow:hover {
+   transition: 0.3s;
+   background-color: rgb(254, 236, 72);
+}
+
+.btn-red {
+   background-color: red;
+}
+
+.btn-red:hover {
+   transition: 0.3s;
+   background-color: rgb(181, 23, 41);
 }

@@ -28,11 +28,27 @@ showSlide(slideIndex);
 // line percent //
 
 function showLine(color) {
-  // hide all lines afret click choose line
-  document.getElementById("green").style.display = "none";
-  document.getElementById("yellow").style.display = "none";
-  document.getElementById("red").style.display = "none";
+  // find all lines
+  var lines = document.getElementsByClassName("line");
 
-  // show our line
-  document.getElementById(color).style.display = "block";
+  // hide all lines
+  for (var i = 0; i < lines.length; i++) {
+    lines[i].style.width = "0";
+  }
+
+  // get parent container width
+  var parentWidth = document.querySelector(".percent-line").offsetWidth;
+
+  // set width for conclusion line
+  var selectedWidth;
+  if (color === "green") {
+    selectedWidth = parentWidth * 0.33;
+  } else if (color === "yellow") {
+    selectedWidth = parentWidth * 0.66;
+  } else if (color === "red") {
+    selectedWidth = parentWidth;
+  }
+
+  // show choose line with animation
+  document.getElementById(color).style.width = selectedWidth + "px";
 }
