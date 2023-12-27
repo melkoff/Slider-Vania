@@ -1,5 +1,228 @@
 .header {
-    background-color: red;
-    color: #fff;
-    margin-bottom: 100px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    z-index: 99;
+
+    &__container {
+        height: 80px;
+        max-width: 1280px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+
+        &_logo {
+            display: flex;
+            align-items: center;
+
+            a {
+                display: block;
+                margin-right: 25px;
+
+                img {
+                    width: 150px;
+                }
+            }
+
+            .burger-menu {
+                cursor: pointer;
+                border: none;
+                background-color: unset;
+                display: flex;
+                padding: 0;
+                position: relative;
+
+                &:hover {
+                    color: red;
+                    span {
+                        i,
+                        &::before,
+                        &::after {
+                            background-color: red;
+                            width: 100%;
+                            transition: 0.3s;
+                        }
+                    }
+                }
+
+                span {
+                    width: 25px;
+                    height: 15px;
+                    position: relative;
+                    margin-right: 25px;
+
+                    i {
+                        position: absolute;
+                        content: "";
+                        width: 100%;
+                        height: 2px;
+                        left: 0;
+                        top: 50%;
+                        transform: translate(0%, -50%);
+                        background-color: #000;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        width: 50%;
+                        height: 3px;
+                        top: 0;
+                        left: 0;
+                        background-color: #000;
+                        transition: 0.3s;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 50%;
+                        height: 3px;
+                        bottom: 0;
+                        right: 0;
+                        background-color: #000;
+                        transition: 0.3s;
+                    }
+                }
+                em {
+                    position: absolute;
+                    left: 40px;
+                    text-transform: uppercase;
+                    font-style: normal;
+                    &:nth-of-type(2) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &_menu {
+            nav {
+                ul {
+                    width: 400px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    li {
+                        font-size: 14px;
+                        text-transform: uppercase;
+                        a {
+                            color: #000;
+                            text-decoration: none;
+                            transition: 0.3s;
+                            &:hover {
+                                color: red;
+                            }
+                        }
+                    }
+                    .sub-menu {
+                        position: relative;
+
+                        ul {
+                            display: none;
+                            padding: 20px 10px 15px;
+                            background-color: #fff;
+                            width: 250px;
+                            position: absolute;
+                            left: -25px;
+                            &::before {
+                                content: "";
+                                display: block;
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                top: 10px;
+                                bottom: 0;
+                                background-color: #e6e6e6;
+                                pointer-events: none;
+                            }
+
+                            li {
+                                &:first-child {
+                                    margin-top: 0px;
+                                }
+                                width: 100%;
+                                margin-top: 10px;
+                                z-index: 2;
+                                a {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+                            color: red;
+                            transition: 0.3s;
+                            ul {
+                                display: flex;
+                                flex-direction: column;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &_contacts {
+            display: flex;
+            align-items: center;
+            a {
+                text-decoration: none;
+                color: #000;
+                text-transform: uppercase;
+                font-weight: 600;
+                margin: 5px 20px 0 0;
+                transition: 0.3s;
+                display: flex;
+                align-items: center;
+                &:hover {
+                    color: red;
+                }
+                &:nth-child(1) {
+                    svg {
+                        fill: currentColor;
+                    }
+                }
+            }
+            .open-popup {
+                border: 1px solid red;
+                border-radius: 0px;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: 600;
+                padding: 13px 26px;
+            }
+
+            .btn {
+                display: inline-block;
+                position: relative;
+                overflow: hidden;
+                z-index: 2;
+                color: #fff;
+
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    z-index: -1;
+                    background-color: red;
+                    transition: top 0.3s;
+                }
+
+                &:hover {
+                    color: red;
+                    &::before {
+                        top: 50px;
+                    }
+                }
+            }
+        }
+    }
 }
