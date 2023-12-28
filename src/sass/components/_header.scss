@@ -36,12 +36,12 @@
                 position: relative;
 
                 &:hover {
-                    color: red;
+                    color: #f00;
                     span {
                         i,
                         &::before,
                         &::after {
-                            background-color: red;
+                            background-color: #f00;
                             width: 100%;
                             transition: 0.3s;
                         }
@@ -114,7 +114,7 @@
                             text-decoration: none;
                             transition: 0.3s;
                             &:hover {
-                                color: red;
+                                color: #f00;
                             }
                         }
                     }
@@ -155,7 +155,7 @@
 
                         &:hover {
                             cursor: pointer;
-                            color: red;
+                            color: #f00;
                             transition: 0.3s;
                             ul {
                                 display: flex;
@@ -180,7 +180,7 @@
                 display: flex;
                 align-items: center;
                 &:hover {
-                    color: red;
+                    color: #f00;
                 }
                 &:nth-child(1) {
                     svg {
@@ -188,8 +188,8 @@
                     }
                 }
             }
-            .open-popup {
-                border: 1px solid red;
+            .open-modal {
+                border: 1px solid #f00;
                 border-radius: 0px;
                 text-transform: uppercase;
                 font-size: 14px;
@@ -212,12 +212,12 @@
                     top: 0px;
                     left: 0px;
                     z-index: -1;
-                    background-color: red;
+                    background-color: #f00;
                     transition: top 0.3s;
                 }
 
                 &:hover {
-                    color: red;
+                    color: #f00;
                     &::before {
                         top: 50px;
                     }
