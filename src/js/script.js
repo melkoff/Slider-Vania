@@ -24,7 +24,6 @@
 
 // showSlide(slideIndex);
 
-
 // // line percent //
 
 // function showLine(color) {
@@ -56,66 +55,50 @@
 // =========================================================================================== //
 
 // Get popup
-let popup = document.getElementById("myPopup");
+let popup = document.getElementById('myPopup');
 
-// Get the button that open popup 
-let btn = document.getElementById("myBtn");
+// Get the button that open popup
+let btn = document.getElementById('myBtn');
 
 // When user click button open popup
 btn.onclick = function () {
-  popup.style.display = "block";
-}
+	popup.style.display = 'block';
+};
 
 // Get span element that closes popup
-let span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName('close')[0];
 
 // When user click on span (x) close popup
 span.onclick = function () {
-  popup.style.animationName = "animatebottom";
-  popup.style.animationDuration = "0.4s";
-  setTimeout(function () {
-    popup.style.display = "none";
-    popup.style.animationName = "";
-  }, 400);
-}
-
+	popup.style.animationName = 'animatebottom';
+	popup.style.animationDuration = '0.4s';
+	setTimeout(function () {
+		popup.style.display = 'none';
+		popup.style.animationName = '';
+	}, 400);
+};
 
 // =========================================================================================== //
 
-// Get menu
-let menu = document.getElementById("mainMenu");
+let menu = document.getElementById('mainMenu');
+let btnBurger = document.getElementById('burgerMenu');
 
-// Get the button
-let btnBurger = document.getElementById("burgerMenu");
-
-// Toggle menu visibility
 btnBurger.onclick = function () {
-  if (menu.style.display === "block") {
-    menu.style.animationName = "burgerclose";
-    menu.style.animationDuration = "0.6s";
-    setTimeout(function () {
-      menu.style.display = "none";
-      menu.style.animationName = "";
-      toggleButtonText(); // Call function to change text
-    }, 600);
-  } else {
-    menu.style.display = "block";
-    toggleButtonText(); // Call function to change text revers
-  }
-}
+	menu.classList.toggle('_active');
+};
 
 // Get text elements
-let burgerTextOpen = document.getElementById("burgerTextOpen");
-let burgerTextClose = document.getElementById("burgerTextClose");
+let burgerTextOpen = document.getElementById('burgerTextOpen');
+let burgerTextClose = document.getElementById('burgerTextClose');
 
 // Function to chaneg text
 function toggleButtonText() {
-  if (burgerTextOpen.style.display === "none") {
-    burgerTextOpen.style.display = "inline"; // show text 'меню'
-    burgerTextClose.style.display = "none"; // hide text 'закрити'
-  } else {
-    burgerTextOpen.style.display = "none"; // hide text 'меню'
-    burgerTextClose.style.display = "inline"; // show text 'закрити'
-    burgerTextClose.style.color = "white"; // show color white
-  }
+	if (burgerTextOpen.style.display === 'none') {
+		burgerTextOpen.style.display = 'inline';
+		burgerTextClose.style.display = 'none'; //
+	} else {
+		burgerTextOpen.style.display = 'none'; //
+		burgerTextClose.style.display = 'inline';
+		burgerTextClose.style.color = 'white'; //
+	}
 }

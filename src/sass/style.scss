@@ -1,12 +1,13 @@
-@import "reset_style.scss";
-@import "base/func";
-@import "fonts/font";
+@import 'reset_style.scss';
+@import 'base/func';
+@import 'fonts/font';
+@import 'base/ui';
 
-@import "../css/bootstrap.min.css";
+@import '../css/bootstrap.min.css';
 //@import "libs/slick-theme.scss";
-@import "libs/slick.scss";
+@import 'libs/slick.scss';
 
-@import "components/header";
-@import "components/popup";
-@import "components/slider";
-@import "components/footer";
+@import 'components/header';
+@import 'components/popup';
+@import 'components/slider';
+@import 'components/footer';
