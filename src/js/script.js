@@ -55,21 +55,21 @@
 
 // =========================================================================================== //
 
-// Get popup 
+// Get popup
 let popup = document.getElementById("myPopup");
 
 // Get the button that open popup 
 let btn = document.getElementById("myBtn");
 
-// Get span element that closes popup 
-let span = document.getElementsByClassName("close")[0];
-
-// When user click button open popup 
+// When user click button open popup
 btn.onclick = function () {
   popup.style.display = "block";
 }
 
-// When user clickson span (x) close popup
+// Get span element that closes popup
+let span = document.getElementsByClassName("close")[0];
+
+// When user click on span (x) close popup
 span.onclick = function () {
   popup.style.animationName = "animatebottom";
   popup.style.animationDuration = "0.4s";
