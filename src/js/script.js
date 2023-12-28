@@ -78,3 +78,44 @@ span.onclick = function () {
     popup.style.animationName = "";
   }, 400);
 }
+
+
+// =========================================================================================== //
+
+// Get menu
+let menu = document.getElementById("mainMenu");
+
+// Get the button
+let btnBurger = document.getElementById("burgerMenu");
+
+// Toggle menu visibility
+btnBurger.onclick = function () {
+  if (menu.style.display === "block") {
+    menu.style.animationName = "burgerclose";
+    menu.style.animationDuration = "0.6s";
+    setTimeout(function () {
+      menu.style.display = "none";
+      menu.style.animationName = "";
+      toggleButtonText(); // Call function to change text
+    }, 600);
+  } else {
+    menu.style.display = "block";
+    toggleButtonText(); // Call function to change text revers
+  }
+}
+
+// Get text elements
+let burgerTextOpen = document.getElementById("burgerTextOpen");
+let burgerTextClose = document.getElementById("burgerTextClose");
+
+// Function to chaneg text
+function toggleButtonText() {
+  if (burgerTextOpen.style.display === "none") {
+    burgerTextOpen.style.display = "inline"; // show text 'меню'
+    burgerTextClose.style.display = "none"; // hide text 'закрити'
+  } else {
+    burgerTextOpen.style.display = "none"; // hide text 'меню'
+    burgerTextClose.style.display = "inline"; // show text 'закрити'
+    burgerTextClose.style.color = "white"; // show color white
+  }
+}
