@@ -186,13 +186,22 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Roboto, "Inter";
 }
 
+input,
+textarea {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -201,6 +210,11 @@ a {
   color: red;
 }
 
+@media (max-width: 1600px) {
+  .container {
+    max-width: 1280px;
+  }
+}
 /* Slider */
 .slick-slider {
   position: relative;
@@ -312,7 +326,7 @@ a {
   margin-right: 25px;
 }
 .header__container_logo a img {
-  width: 150px;
+  max-width: 140px;
 }
 .header__container_logo .burger-menu {
   cursor: pointer;
@@ -322,14 +336,64 @@ a {
   padding: 0;
   position: relative;
   z-index: 2;
+  transition: all 0.6s ease 0s;
 }
-.header__container_logo .burger-menu:hover {
-  color: red;
+.header__container_logo .burger-menu._active span i {
+  opacity: 0;
 }
-.header__container_logo .burger-menu:hover span i, .header__container_logo .burger-menu:hover span::before, .header__container_logo .burger-menu:hover span::after {
-  background-color: red;
+.header__container_logo .burger-menu._active span::before {
+  transform: rotate(-45deg);
+  top: calc(50% - 1px);
+  background-color: white;
   width: 100%;
-  transition: 0.3s;
+}
+.header__container_logo .burger-menu._active span::after {
+  transform: rotate(45deg);
+  bottom: calc(41% - 1px);
+  background-color: white;
+  width: 100%;
+}
+.header__container_logo .burger-menu._active em {
+  color: white;
+}
+.header__container_logo .burger-menu .burgerTextClose {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: 0.6s ease 0s, color 0.3s ease 0s;
+}
+.header__container_logo .burger-menu .burgerTextClose._active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0%);
+  pointer-events: all;
+}
+.header__container_logo .burger-menu .burgerTextOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(0%);
+  transition: all 0.6s ease 0s, color 0.3s ease 0s;
+}
+.header__container_logo .burger-menu .burgerTextOpen._active {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(100%);
+}
+@media (any-hover: hover) {
+  .header__container_logo .burger-menu:hover {
+    color: red;
+  }
+  .header__container_logo .burger-menu:hover span i, .header__container_logo .burger-menu:hover span::before, .header__container_logo .burger-menu:hover span::after {
+    background-color: red;
+    width: 100%;
+    transition: 0.3s;
+  }
+  .header__container_logo .burger-menu:hover em {
+    color: red;
+  }
 }
 .header__container_logo .burger-menu span {
   width: 25px;
@@ -373,9 +437,6 @@ a {
   text-transform: uppercase;
   font-style: normal;
 }
-.header__container_logo .burger-menu em:nth-of-type(2) {
-  display: none;
-}
 .header__container_logo .menu-container {
   position: fixed;
   top: -100%;
@@ -407,7 +468,7 @@ a {
 .header__container_logo .menu-items .left-menu__top .left-menu__top-langs {
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 130px;
   justify-content: flex-end;
 }
 .header__container_logo .menu-items .left-menu__top .left-menu__top-langs a {
@@ -428,14 +489,47 @@ a {
 }
 .header__container_logo .left-menu__socials {
   grid-column: span 2;
+  padding-bottom: 40px;
 }
 .header__container_logo .left-menu__socials ul {
   display: flex;
+  align-items: flex-end;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  justify-content: flex-start;
+  height: 100%;
+}
+.header__container_logo .left-menu__socials ul li svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+  margin-right: 20px;
+  transition: all 0.3s ease 0s;
+}
+.header__container_logo .left-menu__socials ul li a {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  transition: all 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .header__container_logo .left-menu__socials ul li:hover svg {
+    fill: rgb(224, 137, 137);
+  }
+  .header__container_logo .left-menu__socials ul li:hover a {
+    color: rgb(224, 137, 137);
+  }
+}
+.header__container_logo .left-menu__middle {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
 .header__container_logo .left-menu .first-block {
   display: block;
+  flex: 1 1 50%;
 }
 .header__container_logo .left-menu .first-block nav ul li {
   color: #fff;
@@ -458,6 +552,7 @@ a {
 }
 .header__container_logo .left-menu .second-block {
   display: block;
+  flex: 1 1 50%;
 }
 .header__container_logo .left-menu .second-block nav ul li {
   font-size: 32px;
@@ -548,6 +643,14 @@ a {
 .header__container_logo .brief-menu .btn:hover::before {
   bottom: 50px;
 }
+.header__container_menu {
+  opacity: 1;
+  transition: all 0.6s ease 0s;
+}
+.header__container_menu._active {
+  opacity: 0;
+  pointer-events: none;
+}
 .header__container_menu nav ul {
   width: 400px;
   display: flex;
@@ -632,6 +735,12 @@ a {
 .header__container_contacts {
   display: flex;
   align-items: center;
+  transition: all 0.6s ease 0s;
+  opacity: 1;
+}
+.header__container_contacts._active {
+  opacity: 0;
+  pointer-events: none;
 }
 .header__container_contacts a {
   text-decoration: none;
@@ -681,22 +790,36 @@ a {
 .header__container_contacts .btn:hover::before {
   top: 50px;
 }
+.header .header__logo {
+  transition: all 0.6s ease 0s;
+}
+.header .header__logo._active {
+  position: relative;
+  z-index: 2;
+}
 
 @media (max-width: 1600px) {
   .header__container {
     max-width: 1280px;
+    padding: 0 15px;
     height: 80px;
+  }
+  .left-menu__top-langs {
+    height: 80px !important;
   }
 }
 .popup-form {
   position: fixed;
   z-index: 999;
-  top: 0;
+  top: -100%;
   width: 100%;
   height: 100%;
   background-color: #fff;
-  display: none;
   overflow: auto;
+  transition: all 0.6s ease 0s;
+}
+.popup-form._active {
+  top: 0;
 }
 
 .popup-container {
@@ -707,28 +830,6 @@ a {
   animation-duration: 0.4s;
 }
 
-/*Open animation*/
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
-/*Close animation*/
-@keyframes animatebottom {
-  from {
-    top: 0;
-    opacity: 1;
-  }
-  to {
-    top: -300px;
-    opacity: 0;
-  }
-}
 .popup-close {
   display: inline-block;
   font-size: 50px;
@@ -788,6 +889,10 @@ a {
   width: 48%;
   border: none;
   border-bottom: 2px solid #dadada;
+  transition: border-bottom 0.6s ease 0s;
+}
+.contact-name .input:focus {
+  border-bottom: 2px solid rgb(94, 84, 84);
 }
 
 .contact-mail .input {
@@ -808,6 +913,10 @@ a {
   border: none;
   border-bottom: 2px solid #dadada;
   resize: none;
+  transition: border-bottom 0.6s ease 0s;
+}
+.contact-text .input:focus {
+  border-bottom: 2px solid rgb(94, 84, 84);
 }
 
 .contact-us .btn {

@@ -1,13 +1,27 @@
+input,
+textarea {
+	outline: none;
+}
+ul {
+	list-style: none;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
 }
 
 .container {
-	max-width: 1280px;
+	max-width: 1600px;
 	margin: 0 auto;
 	padding: 0 15px;
 }
 ._active-color {
 	color: red;
+}
+
+@media (max-width: (1600px)) {
+	.container {
+		max-width: 1280px;
+	}
 }
