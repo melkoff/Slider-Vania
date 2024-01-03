@@ -43,3 +43,26 @@ btnBurger.onclick = function () {
 	// change logo end***********************************************************
 };
 // burger menu end ************************************************************
+// sublist menu ************************************************************
+const sublistMenuPortfolioBtn = document.querySelector('#menu-sublist-portfolio-btn');
+const sublistMenuPortfolio = document.querySelector('#menu-sublist-portfolio');
+const sublistArrowClose = document.querySelectorAll('#sublist-arrow-close');
+// sublist menu services
+const sublistMenuServices = document.querySelector('#menu-sublist-services');
+const sublistMenuServicesBtn = document.querySelector('#menu-sublist-services-btn');
+
+sublistMenuPortfolioBtn.onclick = function () {
+	sublistMenuPortfolio.classList.toggle('_active');
+};
+sublistMenuServicesBtn.onclick = function () {
+	sublistMenuServices.classList.toggle('_active');
+};
+
+sublistArrowClose.forEach(function (close) {
+	close.onclick = function () {
+		sublistMenuPortfolio.classList.remove('_active');
+		sublistMenuServices.classList.remove('_active');
+	};
+});
+
+// sublist menu close ************************************************************

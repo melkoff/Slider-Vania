@@ -25,3 +25,15 @@ a {
 		max-width: 1280px;
 	}
 }
+
+@media (max-width: (1200px)) {
+	.container {
+		max-width: 960px;
+	}
+}
+
+@media (max-width: (968px)) {
+	.container {
+		max-width: 720px;
+	}
+}

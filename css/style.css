@@ -798,6 +798,82 @@ a {
   z-index: 2;
 }
 
+.left-menu__middle {
+  position: relative;
+}
+
+.first-block__menu-list__item span {
+  position: relative;
+  padding-right: 20px;
+}
+.first-block__menu-list__item span::after {
+  content: "❯";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 13px;
+  transform: translateY(-50%) rotate(90deg);
+  transition: all 0.3s ease;
+}
+.first-block__menu-sublist {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #252525;
+}
+.first-block__menu-sublist__item {
+  color: #fff;
+  font-size: 32px;
+  line-height: 1.2;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: 0.6s;
+}
+@media (any-hover: hover) {
+  .first-block__menu-sublist__item a:hover {
+    color: red;
+  }
+}
+.first-block__menu-sublist-arrow-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  top: -100px;
+  left: 0;
+  border: 1px solid #cbcbcb;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.6s ease 0s;
+}
+@media (any-hover: hover) {
+  .first-block__menu-sublist-arrow-wrapper:hover {
+    border: 1px solid red;
+  }
+  .first-block__menu-sublist-arrow-wrapper:hover svg {
+    fill: red;
+    transform: rotate(180deg) scale(1.1);
+  }
+}
+.first-block__menu-sublist-arrow {
+  transform: rotate(180deg);
+  transition: all 0.6s ease 0s;
+}
+.first-block__menu-sublist-left {
+  flex: 0 1 50%;
+}
+.first-block__menu-sublist-right {
+  flex: 0 1 50%;
+}
+
 @media (max-width: 1600px) {
   .header__container {
     max-width: 1280px;
