@@ -88,6 +88,9 @@ let menu = document.getElementById("mainMenu");
 // Get the button
 let btnBurger = document.getElementById("burgerMenu");
 
+// Change burger class and style
+let spanElement = document.querySelector('.span-burger');
+
 // Toggle menu visibility
 btnBurger.onclick = function () {
   if (menu.style.display === "block") {
@@ -102,7 +105,18 @@ btnBurger.onclick = function () {
     menu.style.display = "block";
     toggleButtonText(); // Call function to change text revers
   }
+  if (spanElement.classList.contains('span-burger')) {
+    // if class .span-burger than we change to class .burger-close
+    spanElement.classList.remove('span-burger');
+    spanElement.classList.add('burger-close');
+  } else {
+    // if not change to class .span-burger
+    spanElement.classList.remove('burger-close');
+    spanElement.classList.add('span-burger');
+  }
 }
+
+// =========================================================================================== //
 
 // Get text elements
 let burgerTextOpen = document.getElementById("burgerTextOpen");
