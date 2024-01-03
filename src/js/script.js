@@ -85,7 +85,7 @@ span.onclick = function () {
 // Get menu
 let menu = document.getElementById("mainMenu");
 
-// Get the button
+// Get the button that open burger menu
 let btnBurger = document.getElementById("burgerMenu");
 
 // Change burger class and style
