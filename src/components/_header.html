@@ -16,6 +16,17 @@
 
 				<div class="menu-items">
 					<div class="container">
+						<div class="top-menu">
+							<div class="top-menu__logo-wrapper">
+								<a class="top-menu__logo" href="/">
+									<img class="top-menu__logo-img" src="./img/logo_white.svg" alt="logo">
+								</a>
+							</div>
+							<div class="top-menu__close">
+								<i class="fa-solid fa-xmark"></i>
+								<span>Закрити</span>
+							</div>
+						</div>
 						<div class="left-menu">
 							<div class="left-menu__top">
 								<div class="left-menu__top-langs">
@@ -24,6 +35,131 @@
 									<a href="#">РУС</a>
 								</div>
 							</div>
+							<div class="left-menu__button">
+								<button id="questBtn" type="button" class="btn open-modal">задати запитання</button>
+							</div>
+
+							<!-- mobile accordions -->
+							<ul class="left-menu__spollers">
+								<li id="spoller1" class="left-menu__spoller">
+									<div id="spoller1Title" class="left-menu__spoller-title">
+										Портфоліо
+									</div>
+									<div id="spoller1Body" class="left-menu__spoller-content accordion-content">
+										<ul class="left-menu__spoller-sublist">
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Доставка їжі
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Будівництво
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													APP
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Фінанси
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Маркетинг
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li id="spoller2" class="left-menu__spoller">
+									<div id="spoller2Title" class="left-menu__spoller-title">
+										Послуги
+									</div>
+									<div id="spoller2Body" class="left-menu__spoller-content accordion-content">
+										<ul class="left-menu__spoller-sublist">
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Створення сайтів
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Брендинг та дизайн
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													CRM системи
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Інтернет магазин
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Лендінг
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Підтримка сайту
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Редизайн
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Розробка додатків
+												</a>
+											</li>
+											<li class="left-menu__spoller-sublist-item">
+												<a class="left-menu__spoller-sublist-link" href="#">
+													Пошукова оптимізація
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="left-menu__spoller">
+									<a href="#" class="left-menu__spoller-link">
+										Нагороди
+									</a>
+								</li>
+								<li class="left-menu__spoller">
+									<a href="#" class="left-menu__spoller-link">
+										Блог
+									</a>
+								</li>
+								<li class="left-menu__spoller">
+									<a href="#" class="left-menu__spoller-link">
+										Нагороди
+									</a>
+								</li>
+								<li class="left-menu__spoller">
+									<a href="#" class="left-menu__spoller-link">
+										Відгуки
+									</a>
+								</li>
+								<li class="left-menu__spoller">
+									<a href="#" class="left-menu__spoller-link">
+										Контакти
+									</a>
+								</li>
+
+
+							</ul>
+
+							<!-- mobile accirdions end  -->
+
 							<div class="left-menu__middle">
 								<ul id="menu-sublist-portfolio" class="first-block__menu-sublist">
 									<div id="sublist-arrow-close" class="first-block__menu-sublist-arrow-wrapper">
@@ -207,18 +343,19 @@
 								</ul>
 							</div>
 						</div>
-						<div class="right-menu">
-							<div class="email-menu">
-								<p>email:</p>
-								<a href="#">office@redstone.media</a>
-								<p>email:</p>
-								<a href="#">support@redstone.media</a>
-							</div>
 
-							<div class="brief-menu">
-								<p>У Вас є цікавий проект, давай втілимо його в реальність</p>
-								<button type="button" class="btn">заповнити бриф</button>
-							</div>
+					</div>
+					<div class="right-menu">
+						<div class="email-menu">
+							<p>email:</p>
+							<a href="#">office@redstone.media</a>
+							<p>email:</p>
+							<a href="#">support@redstone.media</a>
+						</div>
+
+						<div class="brief-menu">
+							<p>У Вас є цікавий проект, давай втілимо його в реальність</p>
+							<button type="button" class="btn">заповнити бриф</button>
 						</div>
 					</div>
 				</div>

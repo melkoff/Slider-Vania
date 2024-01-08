@@ -22,8 +22,33 @@ a {
   color: red;
 }
 
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.2s ease-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.accordion-content.active {
+  height: auto;
+  transition: 0.2s ease-out;
+  opacity: 1;
+  visibility: visible;
+}
+
 @media (max-width: 1600px) {
   .container {
     max-width: 1280px;
+  }
+}
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (max-width: 968px) {
+  .container {
+    max-width: 720px;
   }
 }

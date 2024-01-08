@@ -17,14 +17,12 @@
 		&_logo {
 			display: flex;
 			align-items: center;
-			a {
-				&:first-child {
-					display: block;
-					margin-right: 25px;
-				}
-				img {
-					max-width: 140px;
-				}
+			img {
+				max-width: 140px;
+				margin-right: 25px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 		}
 
@@ -181,12 +179,13 @@
 		.menu-items {
 			color: white;
 			.left-menu__top {
-				grid-column: span 2;
+				grid-column: 2;
 				.left-menu__top-langs {
 					display: flex;
 					align-items: center;
 					height: 130px;
 					justify-content: flex-end;
+					column-gap: 15px;
 					a {
 						transition: color 0.3s ease 0s;
 						@media (any-hover: hover) {
@@ -207,6 +206,68 @@
 			grid-template-columns: 1fr 1fr;
 			gap: 20px;
 			overflow: auto;
+		}
+		.top-menu {
+			display: none;
+		}
+
+		.left-menu__button {
+			display: none;
+			button {
+				background-color: #e70000;
+				color: white;
+				font-size: 12px;
+				padding: 13px 26px;
+				border: 1px solid #e70000;
+				font-weight: 600;
+				text-transform: uppercase;
+			}
+			@media (max-width: 968px) {
+				display: block;
+			}
+		}
+		.left-menu__spollers {
+			display: none;
+			font-size: 18px;
+			color: white;
+			li {
+				&:not(:last-child) {
+					margin-bottom: 20px;
+				}
+			}
+		}
+		.left-menu__spoller {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		.left-menu__spoller-sublist {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-top: 20px;
+			&:not(:last-child) {
+				margin-bottom: 20px;
+			}
+		}
+		.left-menu__spoller-title {
+			position: relative;
+			padding-right: 20px;
+			&::after {
+				content: '\276F';
+				position: absolute;
+				top: 50%;
+				font-size: 12px;
+				right: 0;
+				transform: translateY(-50%) rotate(90deg);
+				transition: all 0.3s ease;
+			}
+			&.active {
+				&::after {
+					transform: translateY(-50%) rotate(-90deg);
+				}
+			}
 		}
 		.left-menu__socials {
 			grid-column: span 2;
@@ -728,10 +789,15 @@
 	}
 }
 @media (max-width: (968px)) {
+	.header .header__logo._active {
+		z-index: 0;
+	}
 	.header__container {
 		max-width: 720px;
 	}
 	.header__container .menu-container .menu-items {
+		display: flex;
+		flex-direction: column;
 		overflow: auto;
 		min-height: 100vh;
 		height: 100%;
@@ -740,8 +806,6 @@
 			height: 100%;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
-			padding-top: 70px;
 		}
 	}
 	.header__container .menu-items .left-menu {
@@ -756,10 +820,11 @@
 		flex-direction: column;
 	}
 	.header__container .menu-items .right-menu {
-		position: absolute;
+		position: relative;
+		padding-top: 20px;
 		display: flex;
 		flex-direction: row;
-		height: 30vh;
+		height: 60vh;
 		bottom: 0;
 		left: 0;
 		right: 0;
@@ -792,5 +857,60 @@
 	.header__container_logo {
 		justify-content: space-between;
 		width: 100%;
+	}
+	.header__container .top-menu {
+		display: block;
+		height: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.header__container .burger-menu {
+		z-index: 0;
+	}
+	.top-menu__close {
+		display: flex;
+		align-items: center;
+		column-gap: 10px;
+
+		i {
+			font-size: 25px;
+		}
+		span {
+			font-size: 14px;
+			font-weight: 300;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+	}
+	.header__container .left-menu__middle {
+		display: none;
+	}
+	.header__container .left-menu__spollers {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.header__container .menu-items .left-menu__top .left-menu__top-langs {
+		height: auto !important;
+	}
+	.header__container .top-menu {
+		margin-bottom: 20px;
+	}
+	.header__container .left-menu__socials {
+		padding-bottom: 0;
+		margin-top: 40px;
+	}
+
+	.header__container .email-menu,
+	.header__container .brief-menu,
+	.header__container .email-menu {
+		padding: 20px 0;
+	}
+}
+@media (max-width: (592px)) {
+	.header__container .menu-items .right-menu {
+		flex-direction: column;
+		height: 80vh;
 	}
 }
