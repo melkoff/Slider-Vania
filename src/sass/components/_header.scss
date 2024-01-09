@@ -8,7 +8,8 @@
 
 	&__container {
 		height: 130px;
-		max-width: 1600px;
+		max-width: 1790px;
+		padding: 0 20px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -49,7 +50,7 @@
 					}
 					&::after {
 						transform: rotate(45deg);
-						bottom: calc(41% - 1px);
+						bottom: calc(45% - 1px);
 						background-color: white;
 						width: 100%;
 					}
@@ -196,6 +197,11 @@
 					}
 				}
 			}
+			.container {
+				@media (min-width: (1600px)) {
+					max-width: 1790px;
+				}
+			}
 		}
 
 		.menu-items .left-menu {
@@ -221,6 +227,7 @@
 				border: 1px solid #e70000;
 				font-weight: 600;
 				text-transform: uppercase;
+				letter-spacing: 2px;
 			}
 			@media (max-width: 968px) {
 				display: block;
@@ -432,6 +439,7 @@
 				font-weight: 600;
 				margin-top: 20px;
 				transition: 0.3s ease-in-out;
+				letter-spacing: 2px;
 
 				&::before {
 					content: '';
@@ -890,6 +898,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		margin-top: 15px;
 	}
 	.header__container .menu-items .left-menu__top .left-menu__top-langs {
 		height: auto !important;
@@ -912,5 +921,49 @@
 	.header__container .menu-items .right-menu {
 		flex-direction: column;
 		height: 80vh;
+	}
+
+	.header__container .brief-menu,
+	.header__container .email-menu a {
+		font-size: 25px;
+	}
+	.header__container .left-menu__spoller-title {
+		padding-right: 15px;
+	}
+	.header__container_contacts span {
+		display: none;
+	}
+	.header__container .burger-menu span {
+		margin-right: 10px;
+	}
+	.header__container .burger-menu span::after,
+	.header__container .burger-menu span::before {
+		height: 2px;
+	}
+	.header__container .burger-menu .burgerTextOpen {
+		font-size: 14px;
+		letter-spacing: 0.1em;
+	}
+	.header__container .left-menu__button button {
+		border-radius: 0;
+	}
+	.header__container .top-menu {
+		margin-bottom: 10px;
+	}
+}
+@media (max-width: ( 480px)) {
+	.header__container .menu-items .left-menu__top .left-menu__top-langs {
+		font-size: 12px;
+		column-gap: 10px;
+	}
+	.top-menu__close {
+		span {
+			font-size: 12px;
+		}
+	}
+	.header__container .left-menu__socials ul li svg {
+		width: 20px;
+		height: 20px;
+		margin-right: 0;
 	}
 }

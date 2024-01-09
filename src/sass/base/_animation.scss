@@ -1,0 +1,28 @@
+@keyframes dashDown {
+	0% {
+		stroke-dashoffset: 200;
+	}
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+.fadeInUp {
+	animation: fadeInUp 1s ease-in-out;
+}
+.delay-1 {
+	animation-delay: 0.2s;
+}

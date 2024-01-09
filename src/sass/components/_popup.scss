@@ -21,10 +21,12 @@
 }
 
 .popup-close {
-	display: inline-block;
-	font-size: 50px;
-	position: relative;
-	right: -95%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	right: 15px;
+	top: 15px;
 }
 
 .popup-close .close {
@@ -36,6 +38,10 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
+}
+
+.close__icon {
+	fill: currentColor;
 }
 
 .popup-content {
@@ -92,7 +98,7 @@
 	font-size: 16px;
 	font-weight: 300;
 	border: none;
-	border-bottom: 2px solid #f00;
+	border-bottom: 2px solid #dadada;
 	color: #f00;
 }
 
@@ -124,6 +130,7 @@
 	font-weight: 600;
 	margin-top: 20px;
 	transition: 0.3s ease-in-out;
+	letter-spacing: 2px;
 
 	&::before {
 		content: '';
@@ -149,5 +156,34 @@
 @media (max-width: (1200px)) {
 	.popup-content {
 		max-width: 70%;
+	}
+}
+@media (max-width: (768px)) {
+	.popup-content {
+	}
+	.popup-title h2 {
+		font-size: 30px;
+		font-weight: 400;
+	}
+	.contact-name {
+		flex-direction: column;
+		row-gap: 20px;
+		.input {
+			width: 100%;
+		}
+	}
+}
+@media (max-width: (576px)) {
+	.popup-content {
+		top: 48%;
+		max-width: 100%;
+		padding: 0 15px;
+	}
+	.popup-title h2 {
+		margin-bottom: 10px;
+	}
+	.contact-us .btn {
+		margin: 20px auto 0;
+		display: flex;
 	}
 }

@@ -1,4 +1,28 @@
 window.addEventListener('DOMContentLoaded', () => {
+	// animation ************************************************************
+	const fadeInUpElements = document.querySelectorAll('.fadeInUp');
+
+	function isInViewport(element) {
+		const rect = element.getBoundingClientRect();
+		return (
+			rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+		);
+	}
+
+	function handleScroll() {
+		fadeInUpElements.forEach(function (element) {
+			if (isInViewport(element)) {
+				element.classList.add('fadeInUp');
+			}
+		});
+	}
+
+	// Initial check on page load
+	handleScroll();
+
+	// Check when the user scrolls
+	window.addEventListener('scroll', handleScroll);
+	// animation end ************************************************************
 	//question popup*************************************************************
 	let questionPopup = document.getElementById('question-popup');
 	let questionPopupClose = document.querySelector('.popup-close');
