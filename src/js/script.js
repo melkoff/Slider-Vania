@@ -1,19 +1,31 @@
 window.addEventListener('DOMContentLoaded', () => {
-	$('.projects__card-inner').on('mousemove', function (e) {
-		var circle = $(this).find('.projects__circle');
-		var icon = $(this).find('.projects__circle-icon');
+	const mouseOverCard = () => {
+		$('.projects__card').on('mousemove', function (e) {
+			const cardOffset = $(this).offset();
+			const cardWidth = $(this).outerWidth();
+			const cardHeight = $(this).outerHeight();
 
-		var mouseX = e.pageX - $(this).offset().left;
-		var mouseY = e.pageY - $(this).offset().top;
+			const icon = $(this).find('.projects__circle-icon');
+			const iconWidth = icon.outerWidth();
+			const iconHeight = icon.outerHeight();
 
-		gsap.to(circle, { opacity: 1, duration: 0.3 });
-		gsap.to(icon, { x: mouseX, y: mouseY, duration: 0.3 });
-	});
+			const mouseX = e.pageX - cardOffset.left - cardWidth / 2 + iconWidth / 2;
+			const mouseY = e.pageY - cardOffset.top - cardHeight / 2 + iconHeight / 2;
 
-	$('.projects__card-inner').on('mouseleave', function () {
-		var circle = $(this).find('.projects__circle');
-		gsap.to(circle, { opacity: 0, duration: 0.3 });
-	});
+			gsap.to(icon, { x: mouseX, y: mouseY, duration: 0.3 });
+		});
+
+		$('.projects__card').on('mouseleave', function () {
+			const icon = $(this).find('.projects__circle-icon');
+			gsap.to(icon, { x: 40.5, y: 38.5, opacity: 0, duration: 0.3 });
+		});
+
+		$('.projects__card').on('mouseenter', function () {
+			const icon = $(this).find('.projects__circle-icon');
+			gsap.to(icon, { opacity: 1, duration: 0.3 });
+		});
+	};
+	mouseOverCard();
 	// jquery functions ************************************************************
 
 	// jquery functions end*************************************************************
