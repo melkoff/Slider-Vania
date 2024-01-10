@@ -84,12 +84,12 @@ body {
   line-height: 1;
 }
 
-f body ::-moz-selection {
+body ::-moz-selection {
   background-color: red;
   color: white;
 }
 
-f body ::selection {
+body ::selection {
   background-color: red;
   color: white;
 }

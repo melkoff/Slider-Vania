@@ -82,7 +82,7 @@ video {
 body {
 	line-height: 1;
 }
-f body ::selection {
+body ::selection {
 	background-color: red;
 	color: white;
 }
