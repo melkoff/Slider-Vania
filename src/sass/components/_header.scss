@@ -185,7 +185,7 @@
 					display: flex;
 					align-items: center;
 					height: 130px;
-					justify-content: flex-end;
+					justify-content: center;
 					column-gap: 15px;
 					a {
 						transition: color 0.3s ease 0s;
@@ -332,15 +332,21 @@
 						cursor: pointer;
 						margin-bottom: 25px;
 						transition: 0.3s;
-						&:hover {
-							color: red;
+						@media (any-hover: hover) {
+							&:hover {
+								color: red;
+							}
 						}
+
 						a {
 							color: #fff;
 							text-decoration: none;
+
 							transition: 0.3s;
-							&:hover {
-								color: red;
+							@media (any-hover: hover) {
+								&:hover {
+									color: red;
+								}
 							}
 						}
 					}
@@ -364,8 +370,10 @@
 							text-decoration: none;
 							transition: 0.3s;
 
-							&:hover {
-								color: red;
+							@media (any-hover: hover) {
+								&:hover {
+									color: red;
+								}
 							}
 						}
 					}
@@ -415,6 +423,12 @@
 			text-decoration: none;
 			margin-bottom: 15px;
 			font-size: 22px;
+			transition: all 0.3s linear 0s;
+			@media (any-hover: hover) {
+				&:hover {
+					color: red;
+				}
+			}
 		}
 
 		.brief-menu p {
@@ -452,12 +466,13 @@
 					background-color: #252525;
 					transition: 0.3s ease-in-out;
 				}
-
-				&:hover {
-					color: #000;
-					background-color: #fff;
-					&::before {
-						bottom: 50px;
+				@media (any-hover: hover) {
+					&:hover {
+						color: #000;
+						background-color: #fff;
+						&::before {
+							bottom: 50px;
+						}
 					}
 				}
 			}
@@ -513,7 +528,7 @@
 							width: 250px;
 							position: absolute;
 							left: -25px;
-							transition: all 0.6s ease 0s;
+							transition: all 0.4s ease-in-out 0s;
 							&::before {
 								content: '';
 								display: block;
@@ -743,7 +758,7 @@
 
 	// .first-block__menu-sublist-right
 
-	&__menu-sublist-right {
+	&__menu-sublist-right-wrapper {
 		flex: 0 1 50%;
 	}
 }
