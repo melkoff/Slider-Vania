@@ -1,3 +1,4 @@
+ 
 window.addEventListener('DOMContentLoaded', () => {
 	const body = document.querySelector('body');
 	console.log(body);
@@ -251,4 +252,6 @@ window.addEventListener('DOMContentLoaded', () => {
 		ease: 'power2.out',
 	});
 });
-// done
+ 
+ 
+ 
