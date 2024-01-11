@@ -1,4 +1,4 @@
-/* 
+/*
 HTML5 Doctor Reset v1.6.1
 http://html5doctor.com/html-5-reset-stylesheet/
 */
@@ -92,6 +92,15 @@ body ::-moz-selection {
 body ::selection {
   background-color: red;
   color: white;
+}
+
+body::-webkit-scrollbar {
+  width: 5px; /* Adjust the width as needed */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(231, 0, 0); /* Set your desired color */
+  border-radius: 5px;
 }
 
 article,

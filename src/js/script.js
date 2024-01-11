@@ -1,135 +1,254 @@
-// var slideIndex = 0;
-// var slides = document.getElementsByClassName("slider-wrapper")[0].children;
+ 
+window.addEventListener('DOMContentLoaded', () => {
+	const body = document.querySelector('body');
+	console.log(body);
+	const mouseOverCard = () => {
+		$('.projects__card').on('mousemove', function (e) {
+			const cardOffset = $(this).offset();
+			const cardWidth = $(this).outerWidth();
+			const cardHeight = $(this).outerHeight();
 
-// function showSlide(n) {
-//   for (var i = 0; i < slides.length; i++) {
-//     slides[i].style.opacity = 0;
-//   }
+			const icon = $(this).find('.projects__circle-icon');
+			const iconWidth = icon.outerWidth();
+			const iconHeight = icon.outerHeight();
 
-//   slideIndex = (n + slides.length) % slides.length;
-//   slides[slideIndex].style.opacity = 1;
-// }
+			const mouseX = e.pageX - cardOffset.left - cardWidth / 2 + iconWidth / 2;
+			const mouseY = e.pageY - cardOffset.top - cardHeight / 2 + iconHeight / 2;
 
-// function changeSlide(n) {
-//   showSlide(slideIndex + n);
-// }
+			gsap.to(icon, { x: mouseX, y: mouseY, duration: 0.3 });
+		});
 
-// document.getElementsByClassName("slider-prev")[0].addEventListener("click", function () {
-//   changeSlide(-1);
-// });
+		$('.projects__card').on('mouseleave', function () {
+			const icon = $(this).find('.projects__circle-icon');
+			gsap.to(icon, { x: 40.5, y: 38.5, opacity: 0, duration: 0.3 });
+		});
 
-// document.getElementsByClassName("slider-next")[0].addEventListener("click", function () {
-//   changeSlide(1);
-// });
+		$('.projects__card').on('mouseenter', function () {
+			const icon = $(this).find('.projects__circle-icon');
+			gsap.to(icon, { opacity: 1, duration: 0.3 });
+		});
+	};
+	mouseOverCard();
+	// jquery functions ************************************************************
 
-// showSlide(slideIndex);
+	// jquery functions end*************************************************************
+	// animation ************************************************************
+	const fadeUpAnimation = () => {
+		const fadeInUpElements = document.querySelectorAll('.fadeInUp');
 
+		function isInViewport(element) {
+			const rect = element.getBoundingClientRect();
+			return (
+				rect.top >= 0 &&
+				rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+			);
+		}
 
-// // line percent //
+		function handleScroll() {
+			fadeInUpElements.forEach(function (element) {
+				if (isInViewport(element)) {
+					element.classList.add('fadeInUp');
+				}
+			});
+		}
 
-// function showLine(color) {
-//   // find all lines
-//   var lines = document.getElementsByClassName("line");
+		// Initial check on page load
+		handleScroll();
 
-//   // hide all lines
-//   for (var i = 0; i < lines.length; i++) {
-//     lines[i].style.width = "0";
-//   }
+		// Check when the user scrolls
+		window.addEventListener('scroll', handleScroll);
+	};
+	fadeUpAnimation();
 
-//   // get parent container width
-//   var parentWidth = document.querySelector(".percent-line").offsetWidth;
+	// animation end ************************************************************
+	//question popup*************************************************************
+	const questPopupFunction = () => {
+		let questionPopup = document.getElementById('question-popup');
+		let questionPopupClose = document.querySelector('.popup-close');
 
-//   // set width for conclusion line
-//   var selectedWidth;
-//   if (color === "green") {
-//     selectedWidth = parentWidth * 0.33;
-//   } else if (color === "yellow") {
-//     selectedWidth = parentWidth * 0.66;
-//   } else if (color === "red") {
-//     selectedWidth = parentWidth;
-//   }
+		let questBtn = document.querySelectorAll('#questBtn');
 
-//   // show choose line with animation
-//   document.getElementById(color).style.width = selectedWidth + "px";
-// }
+		questBtn.forEach(function (btn) {
+			btn.onclick = function () {
+				questionPopup.classList.toggle('_active');
+			};
+		});
+		questionPopupClose.onclick = function () {
+			questionPopup.classList.toggle('_active');
+		};
+	};
+	questPopupFunction();
 
-// =========================================================================================== //
+	// question popup end*************************************************************
 
-// Get popup
-let popup = document.getElementById("myPopup");
+	const burgerFunction = () => {
+		// burger menu ************************************************************
+		const burgerTxtMenu = document.getElementById('burgerTextOpen');
+		const burgerTxtClose = document.getElementById('burgerTextClose');
+		const menu = document.getElementById('mainMenu');
+		const btnBurger = document.getElementById('burgerMenu');
+		const btnBurgerClose = document.querySelector('.top-menu__close');
 
-// Get the button that open popup 
-let btn = document.getElementById("myBtn");
+		const headerContacts = document.querySelector('.header__container_contacts');
+		const headerContainerMenu = document.querySelector('.header__container_menu');
+		const headerLogo = document.querySelector('.header__logo');
 
-// When user click button open popup
-btn.onclick = function () {
-  popup.style.display = "block";
-}
+		if (window.innerWidth > 968) {
+			btnBurger.onclick = function () {
+				body.classList.toggle('_lock');
+				menu.classList.toggle('_active');
+				btnBurger.classList.toggle('_active');
+				burgerTxtMenu.classList.toggle('_active');
+				burgerTxtClose.classList.toggle('_active');
+				if (innerWidth > 1200) {
+					headerContacts.classList.toggle('_active');
+					headerContainerMenu.classList.toggle('_active');
+				}
+				headerLogo.classList.toggle('_active');
+				// change logo 	*************************************************************
 
-// Get span element that closes popup
-let span = document.getElementsByClassName("close")[0];
+				if (headerLogo.classList.contains('_active')) {
+					headerLogo.src = './img/logo_white.svg';
+				} else {
+					headerLogo.src = './img/logo.svg';
+				}
+				// change logo end***********************************************************
+			};
+		}
+		if (window.innerWidth <= 968) {
+			btnBurger.onclick = function () {
+				menu.classList.toggle('_active');
+			};
+			btnBurgerClose.onclick = function () {
+				menu.classList.toggle('_active');
+			};
+		}
+		// burger menu end ************************************************************
+	};
+	burgerFunction();
+	// =========================================================================================== //
 
-// When user click on span (x) close popup
-span.onclick = function () {
-  popup.style.animationName = "animatebottom";
-  popup.style.animationDuration = "0.4s";
-  setTimeout(function () {
-    popup.style.display = "none";
-    popup.style.animationName = "";
-  }, 400);
-}
+	// sublist menu ************************************************************
+	const subMenuDesctopFunction = () => {
+		const sublistMenuPortfolioBtn = document.querySelector('#menu-sublist-portfolio-btn');
+		const sublistMenuPortfolio = document.querySelector('#menu-sublist-portfolio');
+		const sublistArrowClose = document.querySelectorAll('#sublist-arrow-close');
+		// sublist menu services
+		const sublistMenuServices = document.querySelector('#menu-sublist-services');
+		const sublistMenuServicesBtn = document.querySelector('#menu-sublist-services-btn');
+		if (window.innerWidth > 968) {
+			sublistMenuPortfolioBtn.onclick = function () {
+				sublistMenuPortfolio.classList.toggle('_active');
+			};
+			sublistMenuServicesBtn.onclick = function () {
+				sublistMenuServices.classList.toggle('_active');
+			};
 
+			sublistArrowClose.forEach(function (close) {
+				close.onclick = function () {
+					sublistMenuPortfolio.classList.remove('_active');
+					sublistMenuServices.classList.remove('_active');
+				};
+			});
+		}
+	};
+	subMenuDesctopFunction();
 
-// =========================================================================================== //
+	// sublist menu close ************************************************************
+	// accordion ************************************************************
+	let activeAccordion = null;
 
-// Get menu
-let menu = document.getElementById("mainMenu");
+	function closeAccordion() {
+		if (activeAccordion) {
+			activeAccordion.classList.remove('active');
+			const panel = activeAccordion.nextElementSibling;
+			panel.style.maxHeight = null;
+			const checkbox = activeAccordion.querySelector('input[type="radio"]');
+			activeAccordion = null;
+		}
+	}
 
-// Get the button that open burger menu
-let btnBurger = document.getElementById("burgerMenu");
+	function accordion(accordionBtn, accordionPanel) {
+		const accordions = document.querySelectorAll(accordionBtn);
 
-// Change burger class and style
-let spanElement = document.querySelector('.span-burger');
+		accordions.forEach(accordion => {
+			accordion.addEventListener('click', function (e) {
+				e.preventDefault();
+				const panel = this.nextElementSibling; // Get the sibling (accordion content) element
+				const isActive = this.classList.contains('active');
 
-// Toggle menu visibility
-btnBurger.onclick = function () {
-  if (menu.style.display === "block") {
-    menu.style.animationName = "burgerclose";
-    menu.style.animationDuration = "0.6s";
-    setTimeout(function () {
-      menu.style.display = "none";
-      menu.style.animationName = "";
-      toggleButtonText(); // Call function to change text
-    }, 600);
-  } else {
-    menu.style.display = "block";
-    toggleButtonText(); // Call function to change text revers
-  }
-  if (spanElement.classList.contains('span-burger')) {
-    // if class .span-burger than we change to class .burger-close
-    spanElement.classList.remove('span-burger');
-    spanElement.classList.add('burger-close');
-  } else {
-    // if not change to class .span-burger
-    spanElement.classList.remove('burger-close');
-    spanElement.classList.add('span-burger');
-  }
-}
+				closeAccordion(); // Close the currently active accordion (if any)
 
-// =========================================================================================== //
+				if (!isActive) {
+					this.classList.add('active');
+					panel.classList.add('active');
+					panel.style.maxHeight = panel.scrollHeight + 'px';
+					activeAccordion = this; // Set the current accordion as the active one
+				}
+			});
+		});
+	}
 
-// Get text elements
-let burgerTextOpen = document.getElementById("burgerTextOpen");
-let burgerTextClose = document.getElementById("burgerTextClose");
+	accordion('#spoller1Title', '#spoller1Body');
+	accordion('#spoller2Title', '#spoller2Body');
+	// accrodion end ************************************************************
 
-// Function to chaneg text
-function toggleButtonText() {
-  if (burgerTextOpen.style.display === "none") {
-    burgerTextOpen.style.display = "inline"; // show text 'меню'
-    burgerTextClose.style.display = "none"; // hide text 'закрити'
-  } else {
-    burgerTextOpen.style.display = "none"; // hide text 'меню'
-    burgerTextClose.style.display = "inline"; // show text 'закрити'
-    burgerTextClose.style.color = "white"; // show color white
-  }
-}
+	const heroSupnumber = new SplitType('#heroSupnumber', { charsClass: 'char' });
+	const heroNumber = new SplitType('#heroNumber', { charsClass: 'char' });
+	const heroTitle = new SplitType('.hero__title', { charsClass: 'char' });
+	const heroBtnChars = new SplitType('.hero__btn', { charsClass: 'char' });
+	// const heroBtn = document.querySelector('.hero__btn');
+
+	gsap.from(heroSupnumber.chars, {
+		opacity: 0,
+		y: -20,
+		duration: 0.2,
+		stagger: 0.05,
+	});
+	gsap.from(heroNumber.chars, {
+		opacity: 0,
+		y: -100,
+		duration: 1,
+		stagger: 0.5,
+	});
+
+	// Create a new timeline
+	const timeline = gsap.timeline();
+
+	// Add the 'from' part of the animation to the timeline
+	timeline.from(heroTitle.chars, {
+		opacity: 0,
+		x: 10,
+		duration: 1,
+		stagger: 0.08,
+	});
+	timeline.to(heroTitle.chars, {
+		opacity: 1,
+		x: 0,
+		duration: 1,
+		stagger: 0.08,
+	});
+
+	timeline.from(heroBtnChars.chars, {
+		opacity: 0,
+		x: 10,
+		duration: 1,
+		stagger: 0.08,
+	});
+	timeline.to(
+		heroBtnChars.chars,
+		{
+			opacity: 1,
+			x: 0,
+			duration: 1,
+			stagger: 0.08,
+		},
+		0,
+	);
+	gsap.to('.projects__circle-icon', {
+		duration: 0.3,
+		x: mouseX,
+		y: mouseY,
+		ease: 'power2.out',
+	});
+}); 
