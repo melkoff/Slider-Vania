@@ -1,7 +1,5 @@
- 
+
 window.addEventListener('DOMContentLoaded', () => {
-	const body = document.querySelector('body');
-	console.log(body);
 	const mouseOverCard = () => {
 		$('.projects__card').on('mousemove', function (e) {
 			const cardOffset = $(this).offset();
@@ -95,7 +93,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		if (window.innerWidth > 968) {
 			btnBurger.onclick = function () {
-				body.classList.toggle('_lock');
 				menu.classList.toggle('_active');
 				btnBurger.classList.toggle('_active');
 				burgerTxtMenu.classList.toggle('_active');
@@ -252,6 +249,6 @@ window.addEventListener('DOMContentLoaded', () => {
 		ease: 'power2.out',
 	});
 });
- 
- 
- 
+
+
+
