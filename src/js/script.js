@@ -1,3 +1,4 @@
+ 
 window.addEventListener('DOMContentLoaded', () => {
 	const body = document.querySelector('body');
 	console.log(body);
@@ -250,4 +251,4 @@ window.addEventListener('DOMContentLoaded', () => {
 		y: mouseY,
 		ease: 'power2.out',
 	});
-});
+}); 
